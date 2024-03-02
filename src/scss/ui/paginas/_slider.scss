@@ -1,0 +1,67 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+
+.slider-container {
+    width: 100%;
+    height: 50rem;
+    padding-top: 5rem;
+    position: relative;
+}
+
+.position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slider {
+    background-image: url(/build/img/slider/1.webp);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    animation: slide 20s infinite ease-in-out;
+}
+
+@keyframes slide {
+    0% {
+        background-image: url(/build/img/slider/1.webp);
+        background-size: cover;
+        background-position: center center;
+    }
+    20% {
+        background-image: url(/build/img/slider/2.webp);
+        background-size: cover;
+        background-position: center center;
+    }
+    40% {
+        background-image: url(/build/img/slider/3.webp);
+        background-size: cover;
+        background-position: center center;
+    }
+    60% {
+        background-image: url(/build/img/slider/4.webp);
+        background-size: cover;
+        background-position: center center;
+    }
+    80% {
+        background-image: url(/build/img/slider/5.webp);
+        background-size: cover;
+        background-position: center center;
+    }
+    100% {
+        background-image: url(/build/img/slider/6.webp);
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+.margin-top {
+    margin: 5rem 0 0 0;
+}
+
+.contenedor-sm {
+    padding: 1rem;
+}

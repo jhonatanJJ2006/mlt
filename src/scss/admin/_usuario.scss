@@ -1,0 +1,36 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.usuario {
+    padding: 1rem;
+
+    &__admin-plus {
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: v.$verde;
+
+        &--color {
+            color: v.$blanco;
+        }
+    }
+
+    &__admin-x {
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: v.$rojo;
+
+        &--color {
+            color: v.$blanco;
+        }
+    }
+
+    &__suscripcion-x {
+        font-size: 3rem;
+        color: v.$rojo;
+    }
+
+    &__suscripcion-plus {
+        font-size: 3rem;
+        color: v.$verde;
+    }
+}

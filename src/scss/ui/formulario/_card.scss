@@ -1,0 +1,118 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.card {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: v.$azul-marino;
+    border-radius: 1rem;
+    max-width: 25rem;
+    height: auto;
+    transition-property: margin-top, margin-bottom;
+    transition-duration: 200ms;
+
+    &:hover {
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__body {
+        display: flex;
+        height: 100%;
+        width: auto;
+        border-radius: 1rem;
+        border-top: 2rem solid v.$azul;
+        border-bottom: 2rem solid v.$azul;
+        border-left: .2rem solid v.$azul;
+        border-right: .2rem solid v.$azul;
+        padding: 1rem;
+        background-color: v.$azul-marino;
+        align-items: center;
+
+        &--border {
+            height: 100%;
+            display: block;
+            text-align: center;
+            justify-content: center;
+            border: 1px solid v.$blanco;
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+
+        &--border-cursos {
+            @extend .card__body--border;
+            border: 1px solid v.$azul-marino;
+        }
+
+        &--cursos {
+            background-color: #222;
+            border: 1px solid v.$blanco;
+        }
+    }
+
+    &__card-body {
+        border-top: 1px solid v.$azul;
+        border-bottom: 1px solid v.$azul;
+        padding: 1rem;
+        background-color: v.$azul-marino;
+        height: auto;
+    }
+
+    &__img-body {
+        margin: 0 auto;
+        max-width: 15rem;
+        border-radius: 50%;
+        border: 3px solid v.$azul;
+
+        &--cursos {
+            @extend .card__img-body;
+            border: 3px solid v.$gris-claro;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        border-radius: 50%;
+        display: block;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    &__desc {
+        color: v.$blanco;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: v.$regular;
+    }
+
+    &__title {
+        color: v.$azul;
+        font-size: 2rem;
+        font-weight: v.$bold;
+    }
+
+    &__boton {
+        @include m.boton(transparent, #0cf, #0cf);
+        width: 80%;
+        margin: 1rem auto;
+        border: 2px solid #0cf;
+        border-radius: 1rem;
+        font-size: 1.2rem;
+
+        &:hover {
+            background-color: #0cf;
+            color: #222;
+            border: none;
+            box-shadow: 0 0 1rem #0cf;
+        }
+    }
+
+    &__seleccionado {
+        background-color: #0cf;
+        color: #222;
+        border: none;
+        box-shadow: 0 0 1rem #0cf;
+    }
+}

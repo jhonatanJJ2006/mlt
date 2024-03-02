@@ -1,0 +1,28 @@
+{
+    "name": "juandelatorre/devwebcamp",
+    "description": "Proyecto PHP 8, MVC, SQL, BEM, SASS",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juan Pablo De la torre Valdez https://twitter.com/@codigoconjuan https://codigoconjuan.com "
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.5",
+        "vlucas/phpdotenv": "^5.4",
+        "intervention/image": "^2.7",
+        "xemle/html5-video-php": "dev-master",
+        "getbrevo/brevo-php": "1.0.2",
+        "spatie/pdf-to-image": "^1.2",
+        "mpdf/mpdf": "^8.2",
+        "resend/resend-php": "^0.11.0"
+    }
+}

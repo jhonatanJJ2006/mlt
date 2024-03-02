@@ -1,0 +1,38 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.redes {
+    
+    &__icono {
+        height: 100%;
+        padding: 1rem;
+        background-color: v.$negro;
+        color: v.$blanco;
+        transition: background-color .5s ease-in-out;
+    }
+
+    &__enlace {
+        width: 100%;
+        padding: 1rem;
+        background-color: lighten(v.$negro, 10%);
+        background-color: v.$azul-oscuro;
+        color: v.$blanco;
+        transition: background-color .5s ease-in-out;
+    }
+
+    &__display {
+        display: none;
+    }
+
+    &:hover {
+        .redes__icono {
+            background-color: v.$blanco;
+            color: v.$negro;
+        }
+
+        .redes__enlace {
+            background-color: v.$blanco;
+            color: v.$negro;
+        }
+    }
+}

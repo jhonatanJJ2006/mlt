@@ -1,0 +1,117 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.footer {
+    background-image: url(/build/img/footer.webp);
+    background-position: center center;
+    background-repeat: none;
+    background-size: cover;
+
+    &__contenedor {
+        @include m.contenedor();
+    }
+
+    &__block {
+        display: block;
+    }
+
+    &__grid {
+        display: grid;
+        @include m.grid(2, 2rem);
+
+        &--contenido {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 15rem 0rem;
+            gap: 1rem;
+
+            @include m.tablet {
+                padding: 12rem 10rem;   
+            }
+        }
+    }
+
+    &__redes {
+
+        &--enlace {
+            color: v.$blanco;
+            font-size: 1.4rem;
+            font-weight: v.$bold;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: .5rem;
+            padding: 1rem;
+            background: #ffffff10;
+            backdrop-filter: blur(1rem);
+            --webkit-backdrop-filter: blur(20rem);
+            transition: background-color .5s ease-in-out;
+
+            &:hover {
+                background-color: v.$blanco;
+                color: v.$negro;
+            }
+        }
+    }
+
+    &__carrito {
+        display: flex;
+        background: #ffffff10;
+        backdrop-filter: blur(1rem);
+        --webkit-backdrop-filter: blur(20rem);
+        color: v.$blanco;
+        align-items: center;
+        font-size: 1.6rem;
+        gap: .2rem;
+        padding: 1rem;
+        justify-content: center;
+        border-radius: 2rem;
+        transition: background-color .5s ease-in-out;
+
+        &:hover {
+            background-color: v.$blanco;
+            color: v.$negro;
+        }
+    }
+
+    &__sitios {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding: 1rem;
+        color: v.$blanco;
+        font-size: 1.2rem;
+        font-weight: v.$bold;
+        text-transform: uppercase;
+        gap: .2rem;
+
+        @include m.tablet {
+            display: flex;
+        }
+
+        &--actual {
+            color: v.$secundario;
+        }
+
+        &:hover {
+            color: v.$secundario;
+        }
+    }
+
+    &__permisos {
+        display: flex;
+        font-size: 1.4rem;
+        color: v.$blanco;
+        padding: 5rem;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    &__enlace {
+        color: v.$dorado;
+        font-weight: v.$bold;
+
+        &:hover {
+            color: v.$blanco;
+        }
+    }
+}

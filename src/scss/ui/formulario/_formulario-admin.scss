@@ -1,0 +1,178 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario-admin {
+    display: flex;
+    flex-direction: column;
+
+    &__fieldset {
+        border: none;
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    &__legend {
+        color: v.$gris;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+
+        &--contacto {
+            @extend .formulario-admin__legend;
+            color: v.$blanco;
+            text-transform: uppercase;
+            display: flex;
+            text-align: center;
+        }
+    }
+
+    &__campo {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    &__contenedor-icono {
+        display: flex;
+        border-radius: 1rem;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+
+    &__icono {
+        background-color: v.$gris-oscuro;
+        width: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            color: v.$blanco;
+            font-size: 2rem;
+        }
+    }
+
+    &__label {
+        display: block;
+        font-size: 1.8rem;
+        color: rgba(v.$negro, .8);
+
+        &--ponentes {
+            @extend .formulario-admin__label;
+            margin-bottom: 2rem;
+        }
+
+        &--contacto {
+            @extend .formulario-admin__label;
+            color: v.$secundario;
+        }
+    }
+
+    &__input,
+    &__select {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid darken(v.$gris-claro, 20);
+        border-radius: .5rem;
+
+        &--file {
+            border: none
+        }
+
+        &--sociales {
+            @extend .formulario-admin__input;
+            flex: 1;
+            border-radius: 0px 1rem 1rem 0px;
+        }
+
+        &--contacto {
+            @extend .formulario-admin__input;
+            background-color: v.$negro-oscuro;
+            border: none;
+            color: v.$blanco;
+        }
+    }
+
+    &__radio {
+       display: flex; 
+       gap: 2rem;
+    }
+
+    &__texto {
+        margin-top: 3rem;
+    }
+
+    &__imagen {
+        display: flex;
+        justify-content: center;
+        max-width: 20rem;
+        margin: 0 auto;
+
+        &--table {
+            @extend .formulario-admin__imagen;
+            border-radius: 50%;
+            max-width: 10rem;
+            border: 1px solid v.$azul
+        }
+    }
+
+    &__video {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30rem;
+        height: 15rem;
+        margin: 0 auto;
+
+        &--block {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        &--tamaño {
+            @extend .formulario-admin__video;
+            width: 100%;
+            height: 30rem;
+
+            @include m.tablet {
+                height: 100%;
+            }
+        }
+    }
+
+    &__listado {
+        @include m.tags();
+    }
+
+    &__submit {
+        @include m.boton(v.$azul, v.$blanco, transparent);
+        width: auto;
+        align-self: flex-start;
+
+        &--registrar {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        &--contacto {
+            @include m.boton(v.$azul-marino, v.$blanco, transparent);
+            width: 100%;
+            background-color: transparent;
+            border: 1px solid v.$blanco;
+        }
+    }
+    
+    &__blur {
+        background: #fafafa10;
+        backdrop-filter: blur(0.4rem);
+        --webkit-backdrop-filter: blur(10rem);
+    }
+
+    &__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+}

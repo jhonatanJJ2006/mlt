@@ -1,0 +1,199 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+
+    @include m.contenedor-sm();
+
+    &__fieldset {
+        border: none;
+        margin-top: 1rem;
+        padding: 0;
+    }
+
+    &__legend {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
+    &__campo {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    &__label {
+        display: block;
+        font-size: 1.8rem;
+        color: v.$celeste;
+    }
+
+    &__input,
+    &__select {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid v.$secundario;
+        background-color: transparent;
+        color: v.$blanco;
+
+        &--file {
+            border: none
+        }
+    }
+
+    &__logout {
+        font-size: 1.2rem;
+        font-weight: v.$bold;
+        text-transform: uppercase;
+        background-color: transparent;
+        border: none;
+        color: v.$blanco;
+        
+        &:hover {
+            cursor: pointer;
+            color: lighten(v.$rojo, 20%);
+        }
+    }
+
+    &__radio {
+       display: flex; 
+       gap: 2rem;
+    }
+
+    &__texto {
+        margin-top: 3rem;
+    }
+
+    &__imagen {
+        max-width: 20rem
+    }
+
+    &__submit {
+        @include m.boton(transparent, v.$blanco, v.$blanco);
+        width: auto;
+        align-self: flex-start;
+        box-shadow: 0px 0px 3px 1.5px rgba(250, 250, 250, 1);
+
+        &--auth {
+            width: 100%;
+            margin: 3rem auto 0 auto;
+
+            &:hover {
+                border: none;
+            }
+        }
+    }
+
+    &__donaciones {
+        @include m.contenedor-sm();
+        margin-top: 3rem;
+        background: #fafafa10;
+        backdrop-filter: blur(0.4rem);
+        --webkit-backdrop-filter: blur(10rem);
+        padding: 2rem;
+        border-radius: 1rem;
+        border: 1px solid v.$blanco;
+    }
+}
+
+.formulario-admin__campo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.formulario__monto--opcion {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.formulario__monto--opcion p {
+    margin: 0;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.codepen-button {
+    display: block;
+    cursor: pointer;
+    color: white;
+    margin: 0 auto;
+    position: relative;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 3px;
+    isolation: isolate;
+}
+
+.codepen-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    background: linear-gradient(115deg, #F2E18D, #F2B705, #D98E04, #D97904, #e9b313);
+    background-size: 33.33% 100%;
+    animation: an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop .75s linear infinite;
+    animation-play-state: paused;
+    translate: -5% 0%;
+    transition: translate 0.25s ease-out;
+}
+
+
+
+
+.codepen-button:hover::before {
+    animation-play-state: running;
+    transition-duration: 0.75s;
+    translate: 0% 0%;
+}
+
+@keyframes an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop {
+    to {
+        transform: translateX(-25%);
+    }
+}
+
+.codepen-button span {
+    position: relative;
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    background: #000;
+    border-radius: 3px;
+    height: 100%;
+    transition: all .5s ease-in-out;
+
+    &:hover {
+        background-color: v.$blanco;
+        color: v.$negro;
+    }
+}
+
+.formulario__monto--opcion.activo p {
+    background-color: #4fcf70;
+}
+
+.formulario__monto--opcion p:hover {
+    background-color: #4fcf70;
+    color: white;
+}
+
+.active span {
+    background-color: v.$blanco;
+    border: 1px solid v.$negro-oscuro;
+    color: v.$negro;
+}

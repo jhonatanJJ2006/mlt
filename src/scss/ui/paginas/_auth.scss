@@ -1,0 +1,89 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.auth {
+    background-color: v.$negro;
+    height: 100%;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+
+    &__grid {
+        
+        @include m.tablet {
+            @include m.contenedor();
+            width: auto;
+            margin: 0;
+            display: flex;
+            flex: 1;
+            overflow-y: auto;
+        }
+    }
+
+    &__contenido {
+        width: 100%;
+    }
+
+    &__contenedor {
+        padding: 1rem;
+        width: auto;
+        @include m.tablet {
+            padding: 1rem;
+            overflow-y: scroll;
+        }
+
+        &--disabled {
+            overflow-y: hidden;
+            padding: 2rem;
+        }
+    }
+
+    &__3d {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__3d--tamaño {
+
+        @include m.tablet {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__heading {
+        text-align: center;
+        margin: 3rem;
+        padding: 1rem;
+        color: v.$blanco;
+    }
+
+    &__texto {
+        color: v.$gris-claro;
+        text-align: center;
+    }
+
+    &__centrar {
+        display: grid;
+        align-items: center;
+    }
+
+    &__centrar-texto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__padding {
+        padding: 1rem;
+    }
+
+    &__blur {
+        background: #fafafa10;
+        backdrop-filter: blur(0.4rem);
+        --webkit-backdrop-filter: blur(10rem);
+    }
+}
+

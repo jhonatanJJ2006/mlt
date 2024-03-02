@@ -1,0 +1,151 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.carrito {
+
+    &__grid {
+        display: block;
+        @include m.contenedor();
+        padding: 1rem;
+        min-height: 30rem;
+
+        @include m.tablet {
+            @include m.grid(2,2rem);
+        }
+    }
+
+    &__numero {
+        display: grid;
+        color: v.$blanco;
+        background-color: v.$rojo;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        place-content: center;
+        position: absolute;
+        z-index: 3;
+    }
+
+    &__contador {
+        display: none;
+        color: v.$blanco;
+        width: 2rem;
+        height: 2rem;
+        background-color: v.$rojo;
+        position: fixed;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        padding: 1rem;
+        place-content: center;
+        margin-top: -3rem;
+        margin-left: -1rem;
+        z-index: 3;
+
+        @include m.desktop {
+            display: grid;
+        }
+    }
+
+    &__productos {
+        display: block;
+        border: none;
+        background: #ffffff10;
+        backdrop-filter: blur(1rem);
+        --webkit-backdrop-filter: blur(20rem);
+        padding: 2rem;
+        height: 50rem;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: v.$gris; 
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: lighten(v.$negro, 20%);
+            border-radius: 6px;
+        }
+    }
+    
+    &__h3 {
+        color: v.$blanco;
+        font-weight: v.$bold;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 3rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid v.$blanco;
+    }
+
+    &__tarjeta {
+        display: flex;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid v.$blanco;
+        gap: 3rem;
+
+        &:last-of-type {
+            border: none;
+            margin-bottom: 0;
+        }
+    }
+
+    &__imagen {
+        width: 15rem;
+        height: auto;
+        border-radius: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__descripcion {
+        flex: 1;
+        align-items: center;
+        @include m.grid(2,1rem);
+
+        &--caracteristicas {
+            color: v.$blanco;
+            font-size: 1.8rem;
+            font-weight: v.$bold;
+        }
+
+        &--nombre {
+            color: v.$dorado;
+        }
+
+        &--duracion {
+            font-size: 1.6rem;
+            color: v.$gris-claro;
+        }
+
+        &--precio {
+            display: block;
+            text-align: right;
+            color: v.$verde;
+            font-weight: v.$bold;
+            font-size: 1.8rem;
+        }
+
+        &--eliminar {
+            color: v.$rojo;
+            font-size: 1.6rem;
+            font-weight: v.$bold;
+            background-color: transparent;
+            border: none;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &--centrar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 3rem;
+        }
+    }
+}

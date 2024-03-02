@@ -1,0 +1,225 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    &__thead {
+        background-color: v.$gris-oscuro;
+        color: v.$blanco;
+
+        &--eventos {
+            background-color: transparent;
+            color: v.$blanco;
+            border-bottom: 1px solid v.$blanco;
+            font-size: 1.4rem;
+        }
+    }
+
+    &__tbody {
+        width: 100%;
+    }
+
+    &__th {
+        display: none;
+        padding: 1rem;
+
+        @include m.tablet {  
+            display: table-cell;
+            text-align: left;
+
+            &--ponentes {
+                text-align: center;
+                justify-content: center;
+            }
+    
+            &--acciones {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__th-display {
+        display: table-cell;
+        padding: 1rem;
+
+        @include m.tablet {
+            display: none;
+        }
+
+    }
+
+    &__td {
+        display: block;
+        justify-content: center;
+        padding: 1.5rem 1rem;
+        align-items: center;
+        text-align: center;
+
+        @include m.tablet {
+            display: table-cell;
+        }
+
+        &--acciones {
+            @extend .table__td;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+
+            @include m.tablet {
+                margin-top: 2rem;
+            }
+        }
+
+        &--eventos {
+            color: v.$blanco;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        &--eventos-enlace {
+            @include m.boton(v.$verde, v.$blanco, v.$blanco);
+            width: 90%;
+            height: auto;
+            font-size: 1.2rem;
+            align-items: center;
+            border: none;
+            border-radius: 2rem;
+            margin: 0;
+            text-align: center;
+            padding: 1rem;
+
+            &:hover {
+                border: none;
+            }
+        }
+
+        &--eventos-descargado {
+            color: v.$verde;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            gap: 1rem;
+            height: 100%;
+        }
+
+        &--blanco {
+            color: v.$blanco;
+            font-size: 1.4rem;
+        }
+
+        &--disable {
+            @extend .table__td--acciones;
+
+            @include m.tablet {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__tr {
+        height: 100%;
+        &:nth-child(even) {
+            background-color: darken(v.$gris-claro, 1.5%);
+        }
+
+        @include m.tablet {
+            width: 100%;
+        }
+
+        &--eventos {
+            height: 100%;
+            background-color: transparent;
+            border-bottom: 1px solid v.$gris;
+
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+
+    &__accion {
+        all: unset;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: v.$bold;
+
+        &--editar {
+            color: v.$azul;
+            text-align: center;
+        }
+
+        &--eliminar {
+            color: v.$rojo;
+            background-color: transparent;
+            border: none;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+        }
+        
+        &--logout {
+            color: v.$blanco;
+            background-color: transparent;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: v.$bold;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &--carrito {
+            padding: 1rem;
+            color: v.$verde;
+            background-color: transparent;
+            border: 1px solid v.$verde;
+            box-shadow: 0px 0px 15px 5px rgba(0,255,27,0.5);
+            transition-property: background-color, color, border;
+            transition-duration: 500ms;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(0, 255, 26, 0.76);
+                color: v.$blanco;
+                border: none;
+            }
+        }
+
+        &--seleccionar {
+            @extend .table__accion--carrito;
+            color: v.$blanco;
+            border: 2px solid v.$secundario;
+            box-shadow: none;
+            width: 80%;
+            height: 5rem;
+            display: grid;
+            place-items: center;
+
+            &:hover {
+                background-color: lighten(v.$gris-oscuro, 5%);
+                border: 2px solid v.$blanco;
+                color: v.$blanco;
+            }
+        }
+    }
+
+    &__carrito {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+}

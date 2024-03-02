@@ -1,0 +1,25 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.listados {
+    li {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        background-color: v.$negro;
+        border-left: 3px solid v.$azul;
+        margin-bottom: 1rem;
+        gap: 1rem;
+        color: v.$blanco;
+        font-size: 1.4rem;
+
+        p, i {
+            color: v.$blanco;
+            font-size: 1.4rem;
+        }
+
+        &:hover {
+            border: 1px solid v.$azul;
+        }
+    }
+}
